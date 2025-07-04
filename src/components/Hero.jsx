@@ -7,19 +7,19 @@ const Hero = () => {
 
   const slides = [
     {
-      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751588350/486311037_1190947539070416_4462830755675453119_n_yba5dx.jpg',
       title: 'Empowering Excellence in Science & Management',
       subtitle: 'Join Kenya\'s premier institute for innovative education and career advancement',
       cta: 'Explore Our Programs'
     },
     {
-      image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751588525/486423060_1190947592403744_2950229703640630458_n_twfms8.jpg',
       title: 'State-of-the-Art Facilities & Expert Faculty',
       subtitle: 'Modern laboratories, experienced educators, and industry-relevant curriculum',
       cta: 'Tour Our Campus'
     },
     {
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751588350/486311037_1190947539070416_4462830755675453119_n_yba5dx.jpg',
       title: 'Your Future Starts Here',
       subtitle: 'Admissions now open - Apply online and secure your spot today',
       cta: 'Apply Now'

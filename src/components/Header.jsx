@@ -55,8 +55,9 @@ const Header = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">M</span>
+              <div className="w-12 h-12  flex items-center justify-center">
+                <img
+                  src="/logo.jpeg" />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-xl text-primary">M.I.S.M.S</span>
