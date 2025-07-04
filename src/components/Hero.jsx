@@ -7,19 +7,31 @@ const Hero = () => {
 
   const slides = [
     {
-      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751588350/486311037_1190947539070416_4462830755675453119_n_yba5dx.jpg',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626549/508794882_23898585109832476_3234301848404076441_n_mi4ds3.jpg',
       title: 'Empowering Excellence in Science & Management',
       subtitle: 'Join Kenya\'s premier institute for innovative education and career advancement',
       cta: 'Explore Our Programs'
     },
     {
-      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751588525/486423060_1190947592403744_2950229703640630458_n_twfms8.jpg',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626463/506891793_10082797551837799_7857211448160052528_n_aprway.jpg',
       title: 'State-of-the-Art Facilities & Expert Faculty',
       subtitle: 'Modern laboratories, experienced educators, and industry-relevant curriculum',
       cta: 'Tour Our Campus'
     },
     {
-      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751588350/486311037_1190947539070416_4462830755675453119_n_yba5dx.jpg',
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626549/474265139_9075760252541539_7027709492581273550_n_awxb0k.jpg',
+      title: 'Your Future Starts Here',
+      subtitle: 'Admissions now open - Apply online and secure your spot today',
+      cta: 'Apply Now'
+    },
+    {
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626463/509534709_23898296136528040_4155656818006462281_n_dj6jec.jpg',
+      title: 'State-of-the-Art Facilities & Expert Faculty',
+      subtitle: 'Modern laboratories, experienced educators, and industry-relevant curriculum',
+      cta: 'Tour Our Campus'
+    },
+    {
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626462/499214735_23904566219234365_7950305702550591906_n_z76asr.jpg',
       title: 'Your Future Starts Here',
       subtitle: 'Admissions now open - Apply online and secure your spot today',
       cta: 'Apply Now'
