@@ -288,14 +288,19 @@ const Contact = () => {
                     accessible by public transport and private vehicles.
                   </p>
                   
-                  {/* Map Placeholder */}
-                  <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center mb-6">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                      <p className="text-gray-500">Interactive Map</p>
-                      <p className="text-sm text-gray-400">Kabuta Main Campus, Murang'a</p>
-                    </div>
+                 <div className="rounded-lg overflow-hidden h-64 w-full mb-6">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12820.494593143054!2d37.18549563284097!3d-0.6985180194750068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182899632c7aa7d3%3A0x6cf660bbd28129b5!2sCFS%20LOUNGE%20%26GRILL!5e1!3m2!1sen!2ske!4v1751590278089!5m2!1sen!2ske"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                   </div>
+
+
 
                   <div className="space-y-4">
                     <h4 className="font-semibold text-lg text-gray-900">Getting Here:</h4>
