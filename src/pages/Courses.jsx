@@ -153,11 +153,36 @@ const Courses = () => {
           description: "Vehicle electrical systems, wiring, and diagnostics"
         },
         {
-          name: "Craft Certificate in Motor Vehicle Mechanics - Grade I, II & III",
+          name: "Craft Certificate in Electrical Installation - Grade I, II & III",
           duration: "1 Year",
           intake: "Jan, May, Sep",
-          description: "Vehicle maintenance, engine repair, and diagnostics"
+          description: "Electrical systems, wiring, and installation practices"
+        },
+        {
+          name: "Craft Certificate in Automotive Engineering - Grade I, II & III",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Automotive systems, engine repair, and vehicle diagnostics"
+        },
+        {
+          name: "Craft Certificate in Electrical and Electronics Engineering -Grade I, II &III",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Electrical circuits, electronic devices, and maintenance"
+        },
+        {
+          name: "Diploma in Electricals and Electronics Engineering",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Electrical circuits, electronic devices, and maintenance"
+        },
+        {
+          name: "Diploma in Automotive Engineering",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Automotive systems, engine repair, and vehicle diagnostics"
         }
+
       ]
     }
   ];
