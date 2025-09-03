@@ -32,10 +32,10 @@ const Index = () => {
 
   const courses = [
     {
-      title: "Computer Science & IT",
-      description: "Master programming, software development, and emerging technologies",
+      title: "School of Health Sciences",
+      description: "Comprehensive healthcare programs to prepare you for a rewarding career in health services",
       duration: "3-4 Years",
-      category: "Technology"
+      category: "Health"
     },
     {
       title: "Business Management",
@@ -50,19 +50,19 @@ const Index = () => {
       category: "Science"
     },
     {
-      title: "Digital Marketing",
-      description: "Learn modern marketing strategies for the digital age",
+      title: "Information Technology",
+      description: "Cutting-edge IT programs to equip you with the latest tech skills",
       duration: "1-2 Years",
-      category: "Marketing"
+      category: "Technology"
     }
   ];
 
   const testimonials = [
     {
       name: "Sarah Wanjiku",
-      program: "Computer Science Graduate",
+      program: "Pharmacy Graduate",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
-      quote: "M.I.S.M.S provided me with the technical skills and confidence to excel in the tech industry. The hands-on approach made all the difference."
+      quote: "The hands-on experience and knowledgeable faculty at M.I.S.M.S gave me the confidence to excel in my pharmacy career."
     },
     {
       name: "David Kimani",
