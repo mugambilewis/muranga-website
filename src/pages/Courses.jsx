@@ -9,30 +9,20 @@ import { Link } from 'react-router-dom';
 const Courses = () => {
   const categories = [
     {
-      title: "Computer Science & IT",
+      title: "SCHOOL OF HEALTH SCIENCES",
       courses: [
+        
         {
-          name: "Diploma in Computer Science",
-          duration: "3 Years",
-          intake: "Jan, May, Sep",
-          description: "Comprehensive program covering programming, database management, and software development"
-        },
-        {
-          name: "Certificate in Information Technology",
+          name: "Certificate in Pharmacy",
           duration: "1 Year",
           intake: "Jan, May, Sep",
-          description: "Foundation course in IT fundamentals, networking, and basic programming"
+          description: "Basic pharmaceutical knowledge, drug dispensing, and healthcare practices"
         },
-        {
-          name: "Advanced Diploma in Software Engineering",
-          duration: "2 Years",
-          intake: "Jan, Sep",
-          description: "Advanced programming concepts, system design, and project management"
-        }
+        
       ]
     },
     {
-      title: "Business & Management",
+      title: "SCHOOL OF BUSINESS",
       courses: [
         {
           name: "Diploma in Business Management",
@@ -41,50 +31,132 @@ const Courses = () => {
           description: "Comprehensive business education covering management, marketing, and entrepreneurship"
         },
         {
-          name: "Certificate in Project Management",
-          duration: "6 Months",
-          intake: "Monthly",
-          description: "Professional project management skills and methodologies"
+          name: "Diploma in Purchasing  and Supply Chain Management",
+          duration: "3 Years",
+          intake: "Jan, May, Sep",
+          description: "Comprehensive business education covering management, marketing, and entrepreneurship"
         },
         {
-          name: "Advanced Diploma in Human Resource Management",
-          duration: "2 Years",
-          intake: "Jan, May, Sep",
-          description: "Strategic HR management, organizational behavior, and labor relations"
-        }
-      ]
-    },
-    {
-      title: "Applied Sciences",
-      courses: [
-        {
-          name: "Diploma in Applied Sciences",
+          name: "Diploma in Sales Management",
           duration: "3 Years",
           intake: "Jan, Sep",
-          description: "Laboratory techniques, research methods, and scientific applications"
+          description: "Sales strategies, customer relationship management, and market analysis"
         },
         {
-          name: "Certificate in Environmental Science",
+          name: "Diploma in Human Resource Management",
+          duration: "3 Years",
+          intake: "Jan, May, Sep",
+          description: "Employee relations, recruitment, and organizational development"
+        },
+        {
+          name: "Diploma in Project Management",
+          duration: "3 Years",
+          intake: "Jan, May, Sep",
+          description: "Project planning, execution, and risk management"
+        },
+        {
+          name: "Certificate in Business Management",
           duration: "1 Year",
           intake: "Jan, May, Sep",
-          description: "Environmental conservation, sustainability, and resource management"
+          description: "Fundamental business principles, management practices, and entrepreneurship"
+        },
+        {
+          name: "Certificate in Supply Chain Management",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Logistics, procurement, and supply chain strategies"
         }
       ]
     },
     {
-      title: "Digital Marketing & Communication",
+      title: "SCHOOL OF HOSPITALITY & TOURISM",
       courses: [
         {
-          name: "Diploma in Digital Marketing",
-          duration: "2 Years",
+          name: "Diploma in Catering and Hospitality Management",
+          duration: "3 Years",
           intake: "Jan, May, Sep",
-          description: "Social media marketing, SEO, content creation, and digital analytics"
+          description: "Hospitality operations, food service management, and event planning"
         },
         {
-          name: "Certificate in Communication & Media Studies",
+          name: "Diploma in Tourism and Travel Management",
+          duration: "3 Years",
+          intake: "Jan, May, Sep",
+          description: "Tourism principles, travel operations, and destination management"
+        },
+        {
+          name: "Certificate in Catering and Hospitality Management",
           duration: "1 Year",
           intake: "Jan, May, Sep",
-          description: "Journalism, public relations, and digital media production"
+          description: "Hospitality operations, food service management, and event planning"
+        },
+        {
+          name: "Certificate in Tourism and Travel Management",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Tourism principles, travel operations, and destination management"
+        }
+      ]
+    },
+    {
+      title: "SCHOOOL OF FASHION AND INTERIOR DECORATION",
+      courses: [
+        {
+          name: "Diploma in Fashion and Interior Design",
+          duration: "3 Years",
+          intake: "Jan,May, Sep",
+          description: "Fashion design, interior decoration, and textile technology"
+        }
+      ]
+    },
+    {
+      title: "SCHOOL OF COSMETOLOGY",
+      courses: [
+        {
+          name: "Certificate in Hair and Beauty Therapy",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Hair styling, skincare, and beauty treatments"
+        }
+      ]
+    },
+    {
+      title: "SCHOOL OF ENGINEERING",
+      courses: [
+        {
+          name: "Artisan Certificate in Welding and Fabrication - Grade I, II & III",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Welding techniques, metal fabrication, and safety practices"
+        },
+        {
+          name: "Artisan Certificate in Electrical Installation - Grade I, II & III",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Electrical systems, wiring, and installation practices"
+        },
+        {
+          name: "Artisan Certificate in Electronics Mechanics - Grade I, II & III",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Electronic circuits, device repair, and maintenance"
+        },
+        {
+          name: "Craft Certificate in Motor Vehicle Mechanics - Grade I, II & III",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Vehicle maintenance, engine repair, and diagnostics"
+        },
+        {
+          name: "Craft Certificate in Motor Vehicle Electricians  - Grade I, II & III",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Vehicle electrical systems, wiring, and diagnostics"
+        },
+        {
+          name: "Craft Certificate in Motor Vehicle Mechanics - Grade I, II & III",
+          duration: "1 Year",
+          intake: "Jan, May, Sep",
+          description: "Vehicle maintenance, engine repair, and diagnostics"
         }
       ]
     }
