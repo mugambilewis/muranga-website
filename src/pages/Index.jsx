@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import WhatsAppWidget from '../components/WhatsAppWidget';
-import { BookOpen, Users, Award, Building, ArrowRight, CheckCircle, Star } from 'lucide-react';
+import { BookOpen, Users, Award, Building, ArrowRight, CheckCircle, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -75,13 +75,117 @@ const Index = () => {
       program: "Applied Sciences Graduate",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
       quote: "The laboratory facilities and expert guidance helped me develop practical skills that employers highly value."
+    },
+    {
+      name: "John Mwangi",
+      program: "Information Technology Graduate",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      quote: "The IT program at M.I.S.M.S equipped me with cutting-edge skills that landed me a job at a leading tech company."
+    },
+    {
+      name: "Mary Wangari",
+      program: "Health Sciences Graduate",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      quote: "The practical training in health sciences prepared me well for real-world healthcare challenges. I'm now helping my community."
+    },
+    {
+      name: "Peter Karanja",
+      program: "Business Management Graduate",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      quote: "M.I.S.M.S gave me the leadership skills and business knowledge to successfully manage my own enterprise."
     }
   ];
+
+  // Testimonials carousel state
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  
+  const testimonialsPerSlide = 3;
+  const totalTestimonialSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
+
+  // Auto-slide functionality for testimonials
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentTestimonialIndex((prevIndex) => 
+        prevIndex === totalTestimonialSlides - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [totalTestimonialSlides, isAutoPlaying]);
+
+  const goToTestimonialSlide = (slideIndex) => {
+    setCurrentTestimonialIndex(slideIndex);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 8000);
+  };
+
+  const goToPrevTestimonial = () => {
+    setCurrentTestimonialIndex(currentTestimonialIndex === 0 ? totalTestimonialSlides - 1 : currentTestimonialIndex - 1);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 8000);
+  };
+
+  const goToNextTestimonial = () => {
+    setCurrentTestimonialIndex(currentTestimonialIndex === totalTestimonialSlides - 1 ? 0 : currentTestimonialIndex + 1);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 8000);
+  };
 
   return (
     <div className="min-h-screen">
       <Header />
       <Hero />
+       {/* About Section */}
+      <section className="py-20 bg-primary text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-serif text-4xl font-bold mb-6">
+                Excellence in Education Since Our Founding
+              </h2>
+              <p className="text-xl mb-6 text-blue-100">
+                At Murang'a Institute of Science and Management Studies, we're dedicated to shaping the future through innovative education and practical skills development.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  "Accredited programs with industry recognition",
+                  "Modern facilities and learning resources",
+                  "Strong industry partnerships and job placement",
+                  "Supportive learning environment"
+                ].map((item, i) => (
+                  <div className="flex items-center space-x-3" key={i}>
+                    <CheckCircle className="h-6 w-6 text-green-400" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <Link
+                to="/about"
+                className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 inline-flex items-center space-x-2"
+              >
+                <span>Learn More About Us</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                alt="Modern campus building"
+                className="rounded-xl shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-accent text-white p-6 rounded-xl shadow-lg">
+                <div className="text-center">
+                  <div className="text-3xl font-bold">500+</div>
+                  <div className="text-sm">Success Stories</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50">
@@ -158,93 +262,99 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20 bg-primary text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-serif text-4xl font-bold mb-6">
-                Excellence in Education Since Our Founding
-              </h2>
-              <p className="text-xl mb-6 text-blue-100">
-                At Murang'a Institute of Science and Management Studies, we're dedicated to shaping the future through innovative education and practical skills development.
-              </p>
-              <div className="space-y-4 mb-8">
-                {[
-                  "Accredited programs with industry recognition",
-                  "Modern facilities and learning resources",
-                  "Strong industry partnerships and job placement",
-                  "Supportive learning environment"
-                ].map((item, i) => (
-                  <div className="flex items-center space-x-3" key={i}>
-                    <CheckCircle className="h-6 w-6 text-green-400" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Link
-                to="/about"
-                className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 inline-flex items-center space-x-2"
-              >
-                <span>Learn More About Us</span>
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </div>
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Modern campus building"
-                className="rounded-xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-accent text-white p-6 rounded-xl shadow-lg">
-                <div className="text-center">
-                  <div className="text-3xl font-bold">500+</div>
-                  <div className="text-sm">Success Stories</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
+      {/* Enhanced Testimonials Section with Carousel */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl font-bold text-gray-900 mb-4">
               What Our Students Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
               Hear from our graduates who have gone on to achieve remarkable success in their careers.
             </p>
+            <p className="text-sm text-gray-500">
+              {testimonials.length} success stories and counting
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-xl shadow-lg animate-fade-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
+          
+          <div className="relative">
+            {/* Main carousel container */}
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentTestimonialIndex * 100}%)` }}
               >
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-6 italic">"{testimonial.quote}"</p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{testimonial.program}</div>
+                {Array.from({ length: totalTestimonialSlides }, (_, slideIndex) => (
+                  <div key={slideIndex} className="w-full flex-shrink-0">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                      {testimonials
+                        .slice(slideIndex * testimonialsPerSlide, (slideIndex + 1) * testimonialsPerSlide)
+                        .map((testimonial, index) => (
+                          <div
+                            key={`${slideIndex}-${index}`}
+                            className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+                          >
+                            <div className="flex items-center mb-4">
+                              {[...Array(5)].map((_, i) => (
+                                <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                              ))}
+                            </div>
+                            <p className="text-gray-600 mb-6 italic">"{testimonial.quote}"</p>
+                            <div className="flex items-center">
+                              <img
+                                src={testimonial.image}
+                                alt={testimonial.name}
+                                className="w-12 h-12 rounded-full mr-4 object-cover"
+                              />
+                              <div>
+                                <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                                <div className="text-sm text-gray-500">{testimonial.program}</div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
+            </div>
+
+            {/* Navigation arrows */}
+            <button
+              onClick={goToPrevTestimonial}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Previous testimonials"
+            >
+              <ChevronLeft className="h-6 w-6 text-gray-600" />
+            </button>
+            
+            <button
+              onClick={goToNextTestimonial}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Next testimonials"
+            >
+              <ChevronRight className="h-6 w-6 text-gray-600" />
+            </button>
+          </div>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {Array.from({ length: totalTestimonialSlides }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => goToTestimonialSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                  index === currentTestimonialIndex
+                    ? 'bg-blue-600 scale-110'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
+
+          
+         
         </div>
       </section>
 

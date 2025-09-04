@@ -253,7 +253,7 @@ const Admissions = () => {
                         <SelectTrigger className="mt-1">
                           <SelectValue placeholder="Select a program" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="max-h-60 overflow-y-auto bg-blue-500">
                           <SelectItem value="computer-science">Diploma in Computer Science</SelectItem>
                           <SelectItem value="business-management">Diploma in Business Management</SelectItem>
                           <SelectItem value="applied-sciences">Diploma in Applied Sciences</SelectItem>
@@ -272,7 +272,7 @@ const Admissions = () => {
                         <SelectTrigger className="mt-1">
                           <SelectValue placeholder="Select intake period" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="max-h-60 overflow-y-auto bg-blue-500">
                           <SelectItem value="january-2024">January 2024</SelectItem>
                           <SelectItem value="may-2024">May 2024</SelectItem>
                           <SelectItem value="september-2024">September 2024</SelectItem>
