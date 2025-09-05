@@ -126,29 +126,29 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Stats Banner */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white/10 backdrop-blur-sm py-6 z-10">
+      {/* Stats Banner - Fixed for mobile */}
+      <div className="absolute bottom-0 left-0 right-0 bg-white/10 backdrop-blur-sm py-2 md:py-4 z-10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-white">
+          <div className="grid grid-cols-4 gap-2 md:gap-4 text-center text-white">
             <div className="flex flex-col items-center">
-              <GraduationCap className="h-8 w-8 mb-2 text-primary" />
-              <div className="font-bold text-2xl">500+</div>
-              <div className="text-sm text-gray-200">Graduates</div>
+              <GraduationCap className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 mb-1 text-primary" />
+              <div className="font-bold text-xs md:text-lg lg:text-2xl">500+</div>
+              <div className="text-xs md:text-sm text-gray-200 leading-tight">Graduates</div>
             </div>
             <div className="flex flex-col items-center">
-              <Users className="h-8 w-8 mb-2 text-primary" />
-              <div className="font-bold text-2xl">50+</div>
-              <div className="text-sm text-gray-200">Expert Faculty</div>
+              <Users className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 mb-1 text-primary" />
+              <div className="font-bold text-xs md:text-lg lg:text-2xl">50+</div>
+              <div className="text-xs md:text-sm text-gray-200 leading-tight">Expert Faculty</div>
             </div>
             <div className="flex flex-col items-center">
-              <BookOpen className="h-8 w-8 mb-2 text-primary" />
-              <div className="font-bold text-2xl">15+</div>
-              <div className="text-sm text-gray-200">Programs</div>
+              <BookOpen className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 mb-1 text-primary" />
+              <div className="font-bold text-xs md:text-lg lg:text-2xl">15+</div>
+              <div className="text-xs md:text-sm text-gray-200 leading-tight">Programs</div>
             </div>
             <div className="flex flex-col items-center">
-              <Award className="h-8 w-8 mb-2 text-primary" />
-              <div className="font-bold text-2xl">#1</div>
-              <div className="text-sm text-gray-200">In Murang'a</div>
+              <Award className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 mb-1 text-primary" />
+              <div className="font-bold text-xs md:text-lg lg:text-2xl">#1</div>
+              <div className="text-xs md:text-sm text-gray-200 leading-tight">In Murang'a</div>
             </div>
           </div>
         </div>
