@@ -47,12 +47,12 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Popular Programs</h3>
             <ul className="space-y-2">
-              <li><span className="text-gray-300">Computer Science</span></li>
+              <li><span className="text-gray-300">Certificate in Pharmacy</span></li>
               <li><span className="text-gray-300">Business Management</span></li>
               <li><span className="text-gray-300">Information Technology</span></li>
               <li><span className="text-gray-300">Applied Sciences</span></li>
               <li><span className="text-gray-300">Project Management</span></li>
-              <li><span className="text-gray-300">Digital Marketing</span></li>
+              <li><span className="text-gray-300">Engineering</span></li>
             </ul>
           </div>
 
@@ -81,13 +81,13 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Murang'a Institute of Science and Management Studies. All rights reserved.
+              © {new Date().getFullYear()} Murang'a Institute of Science and Management Studies. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
+              <Link to="https://mugambilewis.vercel.app/" className="text-gray-400 hover:text-white text-sm transition-colors">Designed with 💙 by MG Designs</Link>
+              
             </div>
           </div>
         </div>

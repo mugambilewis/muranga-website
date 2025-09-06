@@ -270,24 +270,7 @@ const News = () => {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="bg-gradient-to-br from-primary to-accent text-white rounded-xl shadow-lg p-6 animate-fade-in delay-400">
-                <h3 className="font-serif text-xl font-bold mb-4">
-                  Stay Updated
-                </h3>
-                <p className="text-blue-100 mb-4 text-sm">
-                  Subscribe to our newsletter to receive the latest news and updates directly in your inbox.
-                </p>
-                <div className="space-y-3">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full px-4 py-2 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50"
-                  />
-                  <button className="w-full bg-white text-primary px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

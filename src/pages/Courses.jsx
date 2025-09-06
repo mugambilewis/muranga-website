@@ -333,7 +333,7 @@ const Courses = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/admissions"
-              className="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 transform hover:scale-105"
+              className="bg-white text-blue-500 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 transform hover:scale-105"
             >
               Apply Now
             </Link>

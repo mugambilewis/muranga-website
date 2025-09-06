@@ -22,7 +22,7 @@ const Hero = () => {
       image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626549/474265139_9075760252541539_7027709492581273550_n_awxb0k.jpg',
       title: 'Your Future Starts Here',
       subtitle: 'Admissions now open - Apply online and secure your spot today',
-      cta: 'Apply Now'
+      cta: 'Explore Our Programs'
     },
     {
       image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626463/509534709_23898296136528040_4155656818006462281_n_dj6jec.jpg',
@@ -34,7 +34,7 @@ const Hero = () => {
       image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626462/499214735_23904566219234365_7950305702550591906_n_z76asr.jpg',
       title: 'Your Future Starts Here',
       subtitle: 'Admissions now open - Apply online and secure your spot today',
-      cta: 'Apply Now'
+      cta: 'Explore Our Programs'
     }
   ];
 

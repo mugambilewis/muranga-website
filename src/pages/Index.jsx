@@ -3,7 +3,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import WhatsAppWidget from '../components/WhatsAppWidget';
-import { BookOpen, Users, Award, Building, ArrowRight, CheckCircle, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BookOpen, Users, Award, Building, TrendingUp, GraduationCap, ArrowRight, CheckCircle, Star, ChevronLeft, ChevronRight, Download, FileText, AlertCircle } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -30,32 +31,97 @@ const Index = () => {
     }
   ];
 
-  const courses = [
-    {
-      title: "School of Health Sciences",
-      description: "Comprehensive healthcare programs to prepare you for a rewarding career in health services",
-      duration: "3-4 Years",
-      category: "Health"
-    },
-    {
-      title: "Business Management",
-      description: "Develop leadership skills and business acumen for the corporate world",
-      duration: "2-3 Years",
-      category: "Management"
-    },
-    {
-      title: "Applied Sciences",
-      description: "Explore scientific principles with practical applications",
-      duration: "3-4 Years",
-      category: "Science"
-    },
-    {
-      title: "Information Technology",
-      description: "Cutting-edge IT programs to equip you with the latest tech skills",
-      duration: "1-2 Years",
-      category: "Technology"
-    }
-  ];
+  const programs = [
+  {
+    id: 1,
+    title: "School of Education",
+    description: "Empowering future educators with innovative teaching methodologies and educational leadership skills.",
+     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    icon: BookOpen,
+    students: "2,500+",
+    programs: 8,
+    category: "Education",
+    color: "black/10"
+    
+  },
+  {
+    id: 2,
+    title: "School of Business & Economics", 
+    description: "Developing business leaders with strategic thinking and economic analysis capabilities.",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    icon: TrendingUp,
+    students: "3,200+", 
+    programs: 12,
+    category: "Business",
+    color: "black/30"
+  },
+  {
+    id: 3,
+    title: "School of Engineering Technology",
+    description: "Advanced engineering solutions for modern technological challenges and innovation.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", 
+    icon: Award,
+    students: "4,100+",
+    programs: 15,
+    category: "Engineering",
+    
+  },
+  {
+    id: 4,
+    title: "School of Humanities And Social Sciences",
+    description: "Exploring human culture, society, and critical thinking through interdisciplinary approaches.", 
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    icon: Users,
+    students: "1,800+",
+    programs: 10,
+    category: "Humanities",
+   
+  },
+  {
+    id: 5,
+    title: "School of Pure, Applied And Health Sciences",
+    description: "Advancing scientific knowledge and healthcare innovation through research and practice.",
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    icon: Award,
+    students: "2,900+",
+    programs: 18,
+    category: "Sciences",
+    
+  },
+  {
+    id: 6,
+    title: "School of Agriculture And Environmental Sciences", 
+    description: "Sustainable agriculture and environmental conservation for a better tomorrow.",
+    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    icon: TrendingUp,
+    students: "1,600+",
+    programs: 9,
+    category: "Agriculture",
+    
+  },
+  {
+    id: 7,
+    title: "School of Hospitality And Tourism Management",
+    description: "Excellence in hospitality services and sustainable tourism development.",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    icon: Users, 
+    students: "1,200+",
+    programs: 6,
+    category: "Hospitality",
+   
+  },
+  {
+    id: 8,
+    title: "School of Computing And Information Technology",
+    description: "Cutting-edge technology solutions and digital innovation for the future.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+    icon: BookOpen,
+    students: "3,500+",
+    programs: 14,
+    category: "Technology",
+    
+  }
+];
 
   const testimonials = [
     {
@@ -133,59 +199,97 @@ const Index = () => {
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 8000);
   };
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
     <div className="min-h-screen">
       <Header />
       <Hero />
-       {/* About Section */}
-      <section className="py-20 bg-primary text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-serif text-4xl font-bold mb-6">
-                Excellence in Education Since Our Founding
-              </h2>
-              <p className="text-xl mb-6 text-blue-100">
-                At Murang'a Institute of Science and Management Studies, we're dedicated to shaping the future through innovative education and practical skills development.
-              </p>
-              <div className="space-y-4 mb-8">
-                {[
-                  "Accredited programs with industry recognition",
-                  "Modern facilities and learning resources",
-                  "Strong industry partnerships and job placement",
-                  "Supportive learning environment"
-                ].map((item, i) => (
-                  <div className="flex items-center space-x-3" key={i}>
-                    <CheckCircle className="h-6 w-6 text-green-400" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Link
-                to="/about"
-                className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 inline-flex items-center space-x-2"
-              >
-                <span>Learn More About Us</span>
-                <ArrowRight className="h-5 w-5" />
-              </Link>
+      
+      {/* Download Admission Letter Section - Highly Visible */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full -translate-y-36 translate-x-36"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full translate-y-48 -translate-x-48"></div>
+        
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Attention-grabbing badge */}
+            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+              <AlertCircle className="h-5 w-5 text-yellow-300" />
+              <span className="text-sm font-semibold">NEW STUDENTS</span>
             </div>
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Modern campus building"
-                className="rounded-xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-accent text-white p-6 rounded-xl shadow-lg">
-                <div className="text-center">
-                  <div className="text-3xl font-bold">500+</div>
-                  <div className="text-sm">Success Stories</div>
+            
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+              Download Your Admission Letter
+            </h2>
+            <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+              Congratulations! Get your official admission letter and start your academic journey with us.
+            </p>
+            
+            {/* Download cards */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* Main Download Card */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                    <Download className="h-8 w-8 text-white" />
+                  </div>
                 </div>
+                <h3 className="text-xl font-semibold mb-2">Official Admission Letter</h3>
+                <p className="text-blue-100 mb-4">Download your personalized admission letter with all program details</p>
+                <button className="w-full bg-white text-blue-700 py-3 px-6 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 transform hover:scale-105">
+                  Download Now
+                </button>
               </div>
+              
+              {/* Info Card */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                    <FileText className="h-8 w-8 text-white" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Student Handbook</h3>
+                <p className="text-blue-100 mb-4">Complete guide with rules, policies, and important information</p>
+                <button className="w-full bg-white/20 text-white border border-white/30 py-3 px-6 rounded-lg font-semibold hover:bg-white/30 transition-colors duration-200 transform hover:scale-105">
+                  Download Guide
+                </button>
+              </div>
+            </div>
+            
+            {/* Quick actions */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex items-center space-x-2 text-blue-100">
+                <CheckCircle className="h-5 w-5 text-green-300" />
+                <span className="text-sm">Instant Download</span>
+              </div>
+              <div className="flex items-center space-x-2 text-blue-100">
+                <CheckCircle className="h-5 w-5 text-green-300" />
+                <span className="text-sm">PDF Format</span>
+              </div>
+              <div className="flex items-center space-x-2 text-blue-100">
+                <CheckCircle className="h-5 w-5 text-green-300" />
+                <span className="text-sm">Mobile Friendly</span>
+              </div>
+            </div>
+            
+            {/* Additional help link */}
+            <div className="mt-8 pt-6 border-t border-white/20">
+              <p className="text-blue-100 text-sm mb-2">Need help downloading or have questions?</p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center space-x-2 text-white hover:text-blue-100 transition-colors duration-200 underline"
+              >
+                <span>Contact our admissions team</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
+
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50">
@@ -216,51 +320,152 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Courses Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl font-bold text-gray-900 mb-4">
-              Popular Programs
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover our comprehensive range of programs designed to meet industry demands and career aspirations.
-            </p>
-          </div>
+     <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+         
+          <h2 className="font-serif text-4xl font-bold text-gray-900 mb-4">
+            Our Schools & Programs
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover our comprehensive range of programs designed to meet industry demands and career aspirations across diverse fields of study.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {courses.map((course, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {programs.map((program, index) => {
+            const IconComponent = program.icon;
+            return (
               <div
-                key={index}
-                className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group animate-fade-in"
+                key={program.id}
+                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+                onMouseEnter={() => setHoveredCard(program.id)}
+                onMouseLeave={() => setHoveredCard(null)}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mb-2">
-                      {course.category}
-                    </span>
-                    <h3 className="font-semibold text-xl text-gray-900 mb-2">{course.title}</h3>
-                    <p className="text-gray-600 mb-4">{course.description}</p>
-                    <p className="text-sm text-gray-500">Duration: {course.duration}</p>
+                {/* Background Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={program.image}
+                    alt={program.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-t ${program.color} opacity-80 group-hover:opacity-70 transition-opacity duration-300`} />
+                  
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
+                    {/* Top Section */}
+                    <div className="flex items-start justify-between">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 group-hover:bg-white/30 transition-colors duration-300">
+                        <IconComponent className="h-6 w-6" />
+                      </div>
+                      <div className="text-right">
+                        <div className="text-sm opacity-90">{program.students}</div>
+                        <div className="text-xs opacity-75">Students</div>
+                      </div>
+                    </div>
+                    
+                    {/* Bottom Section */}
+                    <div className="space-y-3">
+                      <div>
+                        <span className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium mb-3">
+                          {program.category}
+                        </span>
+                        <h3 className="font-bold text-xl leading-tight mb-2 group-hover:text-gray-100 transition-colors duration-300">
+                          {program.title}
+                        </h3>
+                      </div>
+                      
+                      {/* Expandable Description */}
+                      <div className={`transition-all duration-500 ${hoveredCard === program.id ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                        <p className="text-sm text-gray-100 leading-relaxed mb-3">
+                          {program.description}
+                        </p>
+                      </div>
+                      
+                      {/* Stats and Action */}
+                      <div className="flex items-center justify-between">
+                        <div className="text-sm">
+                          <span className="font-semibold">{program.programs}</span>
+                          <span className="opacity-75 ml-1">Programs</span>
+                        </div>
+                        <div className={`flex items-center space-x-1 transition-all duration-300 ${hoveredCard === program.id ? 'translate-x-0 opacity-100' : 'translate-x-2 opacity-0'}`}>
+                          <span className="text-sm font-medium">Explore</span>
+                          <ArrowRight className="h-4 w-4" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <ArrowRight className="h-6 w-6 text-gray-400 group-hover:text-primary transition-colors duration-200" />
+                  
+                  {/* Hover Effect Overlay */}
+                  <div className={`absolute inset-0 bg-white/5 transition-opacity duration-300 ${hoveredCard === program.id ? 'opacity-100' : 'opacity-0'}`} />
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
+        </div>
 
+        {/* View All Button */}
+        <div className="text-center">
+          <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-3">
+            <span>Explore All Schools</span>
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+      
+       {/* About Section */}
+      <section className="py-12 bg-primary text-white">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 className="font-serif text-4xl font-bold mb-6">
+          Excellence in Education Since Our Founding
+        </h2>
+        <p className="text-xl mb-6 text-blue-100">
+          At Murang'a Institute of Science and Management Studies, we're dedicated to shaping the future through innovative education and practical skills development.
+        </p>
+        <div className="space-y-3 mb-6">
+          {[
+            "Accredited programs with industry recognition",
+            "Modern facilities and learning resources",
+            "Strong industry partnerships and job placement",
+            "Supportive learning environment",
+          ].map((item, i) => (
+            <div className="flex items-center space-x-2" key={i}>
+              <CheckCircle className="h-5 w-5 text-green-400" />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+        <Link
+          to="/about"
+          className="bg-white text-blue-500 px-5 py-2.5 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 inline-flex items-center space-x-2"
+        >
+          <span>Learn More About Us</span>
+          <ArrowRight className="h-5 w-5" />
+        </Link>
+      </div>
+      <div className="relative flex justify-center">
+        <img
+          src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+          alt="Modern campus building"
+          className="rounded-xl shadow-2xl max-w-lg w-full h-auto"
+        />
+        <div className="absolute -bottom-4 -right-4 bg-accent text-white p-5 rounded-xl shadow-lg">
           <div className="text-center">
-            <Link
-              to="/courses"
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 inline-flex items-center space-x-2"
-            >
-              <span>View All Programs</span>
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+            <div className="text-3xl font-bold">500+</div>
+            <div className="text-sm">Success Stories</div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Enhanced Testimonials Section with Carousel */}
       <section className="py-20 bg-gray-50">
@@ -371,7 +576,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/admissions"
-              className="bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 transform hover:scale-105"
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 transform hover:scale-105"
             >
               Apply for Admission
             </Link>

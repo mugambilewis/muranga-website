@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -102,7 +101,7 @@ const Admissions = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-accent text-white">
+      <section className="py-20 bg-blue-700 from-primary to-accent text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-5xl font-bold mb-6 animate-fade-in">
@@ -116,35 +115,68 @@ const Admissions = () => {
         </div>
       </section>
 
-      {/* Admission Process */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      {/* Enhanced Admission Process Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100 rounded-full opacity-20 -translate-x-32 -translate-y-32"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full opacity-20 translate-x-48 translate-y-48"></div>
+        
+        <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl font-bold text-gray-900 mb-4">
-              Simple Admission Process
-            </h2>
+            <div className="inline-block px-4 py-2 bg-blue-600 from-primary to-accent text-white rounded-full text-sm font-semibold mb-4 shadow-lg">
+              Getting Started
+            </div>
+           
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Follow these four easy steps to begin your educational journey with us.
             </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-6 rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {admissionSteps.map((step, index) => (
               <div
                 key={index}
-                className="text-center animate-fade-in"
+                className="group relative animate-fade-in transform transition-all duration-500 hover:scale-105"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 relative">
-                  <step.icon className="h-10 w-10 text-primary" />
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center text-sm font-bold">
-                    {index + 1}
+                {/* Connection line for desktop */}
+                {index < admissionSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-blue-300 z-0"></div>
+                )}
+                
+                <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-blue-200 text-center z-10">
+                  {/* Icon container with enhanced styling */}
+                  <div className="relative w-20 h-20 mx-auto mb-6">
+                    <div className="w-full h-full bg-blue-50 rounded-full flex items-center justify-center group-hover:bg-blue-100 transition-all duration-300 shadow-inner">
+                      <step.icon className="h-10 w-10 text-blue-600 group-hover:text-blue-700 transition-colors duration-300" />
+                    </div>
+                    {/* Step number with enhanced styling */}
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg ring-2 ring-white">
+                      {index + 1}
+                    </div>
                   </div>
+                  
+                  <h3 className="font-semibold text-xl mb-4 text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    {step.description}
+                  </p>
+                  
+                  {/* Hover effect indicator */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-600 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </div>
-                <h3 className="font-semibold text-xl mb-4 text-gray-900">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             ))}
+          </div>
+
+          {/* Call to action */}
+          <div className="text-center mt-16">
+            <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-3 shadow-lg border border-gray-100">
+              <CheckCircle className="h-5 w-5 text-green-500" />
+              <span className="text-gray-700 font-medium">Ready to get started? Complete the form below!</span>
+            </div>
           </div>
         </div>
       </section>
