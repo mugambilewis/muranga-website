@@ -125,32 +125,32 @@ const Hero = () => {
       </button>
 
       {/* Content - Responsive positioning */}
-      <div className="relative z-10 h-full flex items-center pb-16 sm:pb-20 md:pb-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-6 animate-fade-in leading-tight">
-              {slides[currentSlide].title}
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 md:mb-8 text-gray-200 animate-fade-in delay-200 max-w-2xl mx-auto">
-              {slides[currentSlide].subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center animate-fade-in delay-400">
-              <Link
-                to="/admissions"
-                className="bg-accent hover:bg-accent/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base lg:text-lg transition-all duration-200 transform hover:scale-105"
-              >
-                Apply Now
-              </Link>
-              <Link
-                to="/courses"
-                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base lg:text-lg transition-all duration-200 transform hover:scale-105"
-              >
-                {slides[currentSlide].cta}
-              </Link>
-            </div>
-          </div>
-        </div>
+    <div className="relative z-10 h-full flex items-center pb-16 sm:pb-20 md:pb-24">
+  <div className="container mx-auto px-4">
+    <div className="max-w-4xl mx-auto text-center text-white">
+      <h1 className="font-serif text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 animate-fade-in leading-tight">
+        {slides[currentSlide].title}
+      </h1>
+      <p className="text-lg sm:text-xl md:text-lg lg:text-xl mb-6 md:mb-8 text-gray-200 animate-fade-in delay-200 max-w-2xl mx-auto leading-relaxed">
+        {slides[currentSlide].subtitle}
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 md:gap-4 justify-center animate-fade-in delay-400">
+        <Link
+          to="/admissions"
+          className="bg-accent hover:bg-accent/90 text-white px-8 md:px-8 py-4 md:py-4 rounded-lg font-semibold text-lg md:text-base lg:text-lg transition-all duration-200 transform hover:scale-105"
+        >
+          Apply Now
+        </Link>
+        <Link
+          to="/courses"
+          className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-8 md:px-8 py-4 md:py-4 rounded-lg font-semibold text-lg md:text-base lg:text-lg transition-all duration-200 transform hover:scale-105"
+        >
+          {slides[currentSlide].cta}
+        </Link>
       </div>
+    </div>
+  </div>
+</div>
 
       {/* Slide Indicators - Dynamic positioning */}
       <div 
