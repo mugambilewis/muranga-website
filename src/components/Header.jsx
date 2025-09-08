@@ -31,7 +31,7 @@ const Header = () => {
       {/* Top Bar */}
       <div className="bg-primary text-white py-2 text-sm">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center justify-center space-x-4">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4" />
               <span>+254 722 374 451</span>
