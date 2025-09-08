@@ -231,17 +231,25 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               {/* Main Download Card */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <Download className="h-8 w-8 text-white" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Official Admission Letter</h3>
-                <p className="text-blue-100 mb-4">Download your personalized admission letter with all program details</p>
-                <button className="w-full bg-white text-blue-700 py-3 px-6 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 transform hover:scale-105">
-                  Download Now
-                </button>
-              </div>
+  <div className="flex items-center justify-center mb-4">
+    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+      <Download className="h-8 w-8 text-white" />
+    </div>
+  </div>
+  <h3 className="text-xl font-semibold mb-2">Official Admission Letter</h3>
+  <p className="text-blue-100 mb-4">
+    Download your personalized admission letter with all program details
+  </p>
+
+  <a
+    href="/pdfs/MISMS SEPT INTAKE 2025.pdf" // 👈 
+    download
+    className="block w-full text-center bg-white text-blue-700 py-3 px-6 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 transform hover:scale-105"
+  >
+    Download Now
+  </a>
+</div>
+
               
               {/* Info Card */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
