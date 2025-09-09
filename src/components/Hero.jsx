@@ -36,6 +36,24 @@ const Hero = () => {
       title: 'Your Future Starts Here',
       subtitle: 'Admissions now open - Apply online and secure your spot today',
       cta: 'Explore Our Programs'
+    },
+    {
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1757413040/WhatsApp_Image_2025-09-09_at_13.14.47_82cd11bb_ejfv5o.jpg',
+      title: 'Your Future Starts Here',
+      subtitle: 'Admissions now open - Apply online and secure your spot today',
+      cta: 'Explore Our Programs'
+    },
+    {
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1751626463/509534709_23898296136528040_4155656818006462281_n_dj6jec.jpg',
+      title: 'State-of-the-Art Facilities & Expert Faculty',
+      subtitle: 'Modern laboratories, experienced educators, and industry-relevant curriculum',
+      cta: 'Tour Our Campus'
+    },
+    {
+      image: 'https://res.cloudinary.com/drq4idzdj/image/upload/v1757413039/518366019_24073702345654084_2602707829619461535_n_jramrx.jpg',
+      title: 'Your Future Starts Here',
+      subtitle: 'Admissions now open - Apply online and secure your spot today',
+      cta: 'Explore Our Programs'
     }
   ];
 
