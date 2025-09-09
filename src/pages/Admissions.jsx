@@ -101,7 +101,7 @@ const Admissions = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-blue-700 from-primary to-accent text-white">
+      <section className="py-20 bg-primary from-primary to-accent text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-5xl font-bold mb-6 animate-fade-in">
@@ -123,7 +123,7 @@ const Admissions = () => {
         
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-blue-600 from-primary to-accent text-white rounded-full text-sm font-semibold mb-4 shadow-lg">
+            <div className="inline-block px-4 py-2 bg-primary from-primary to-accent text-white rounded-full text-sm font-semibold mb-4 shadow-lg">
               Getting Started
             </div>
            
