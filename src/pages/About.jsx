@@ -31,7 +31,7 @@ const About = () => {
 
   const stats = [
     { icon: Award, number: "15+", label: "Years of Excellence" },
-    { icon: Users, number: "500+", label: "Graduates" },
+    { icon: Users, number: "2000+", label: "Graduates" },
     { icon: BookOpen, number: "15+", label: "Programs Offered" },
     { icon: Building, number: "3", label: "Modern Campuses" }
   ];
@@ -130,7 +130,7 @@ const About = () => {
                 respected institutions in the region.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Located in the scenic town of Murang'a, our Kabuta Main Campus serves as the hub 
+                Located in the scenic Nature of Murang'a, our Kabuta Main Campus serves as the hub 
                 of academic excellence, fostering innovation and nurturing talent across various 
                 disciplines including Science, Management, and Technology.
               </p>
@@ -142,8 +142,8 @@ const About = () => {
             </div>
             <div className="relative animate-fade-in delay-200">
               <img
-                src="https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Modern academic building"
+                src="https://res.cloudinary.com/drq4idzdj/image/upload/v1757413040/WhatsApp_Image_2025-09-09_at_13.14.47_82cd11bb_ejfv5o.jpg"
+                alt="Murang'a Scenic View"
                 className="rounded-xl shadow-2xl"
               />
             </div>

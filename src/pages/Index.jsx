@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import WhatsAppWidget from '../components/WhatsAppWidget';
 import { BookOpen, Users, Award, Building, TrendingUp, GraduationCap, ArrowRight, CheckCircle, Star, ChevronLeft, ChevronRight, Download, FileText, AlertCircle } from 'lucide-react';
 
+
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -201,6 +202,38 @@ const Index = () => {
   };
   const [hoveredCard, setHoveredCard] = useState(null);
 
+  // Add refs and state for animated cards
+  const sectionRef = React.useRef(null);
+  const cardRefs = React.useRef([]);
+  const [visibleCards, setVisibleCards] = useState([]);
+
+  // Intersection Observer for card animation
+  useEffect(() => {
+    setVisibleCards([]); // Reset on mount
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.dataset.index);
+          if (entry.isIntersecting) {
+            setVisibleCards((prev) =>
+              prev.includes(index) ? prev : [...prev, index]
+            );
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    const cardElements = [...cardRefs.current];
+    cardElements.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+    return () => {
+      cardElements.forEach((el) => {
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, [programs.length]);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -213,77 +246,96 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full translate-y-48 -translate-x-48"></div>
         
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Attention-grabbing badge */}
-            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <AlertCircle className="h-5 w-5 text-yellow-300" />
-              <span className="text-sm font-semibold">NEW STUDENTS</span>
-            </div>
-            
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-              Download Your Admission Letter
-            </h2>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Congratulations! Get your official admission letter and start your academic journey with us.
-            </p>
-            
-            {/* Download cards */}
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {/* Main Download Card */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                  <Download className="h-8 w-8 text-white" />
-                </div>
+          <div className="max-w-6xl mx-auto">
+            {/* Header content */}
+            <div className="text-center mb-12">
+              {/* Attention-grabbing badge */}
+              <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <AlertCircle className="h-5 w-5 text-yellow-300" />
+                <span className="text-sm font-semibold">NEW STUDENTS</span>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Official Admission Letter</h3>
-              <p className="text-blue-100 mb-4">
-                Download your personalized admission letter with all program details
+              
+              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+                Download Your Admission Letter
+              </h2>
+              <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Congratulations! Get your official admission letter and start your academic journey with us.
               </p>
-
-              <a
-                href="/pdfs/MISMS SEPT INTAKE 2025.pdf" // 👈 
-                download
-                className="block w-full text-center bg-white text-blue-700 py-3 px-6 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 transform hover:scale-105"
-              >
-                Download Now
-              </a>
             </div>
 
-              
-              {/* Info Card */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <FileText className="h-8 w-8 text-white" />
+            {/* Main content grid */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Download Card */}
+              <div className="order-2 lg:order-1">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 rounded-full flex items-center justify-center shadow-lg">
+                      <Download className="h-10 w-10 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Official Admission Letter</h3>
+                  <p className="text-blue-100 mb-6 text-center text-lg">
+                    Download your personalized admission letter with all program details
+                  </p>
+
+                  <a
+                    href="/pdfs/MISMS SEPT INTAKE 2025.pdf"
+                    download
+                    className="block w-full text-center bg-gradient-to-r from-white to-blue-50 text-blue-700 py-4 px-6 rounded-xl font-bold text-lg hover:from-blue-50 hover:to-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    Download Now
+                  </a>
+
+                  {/* Quick features */}
+                  <div className="mt-6 flex flex-wrap gap-4 justify-center">
+                    <div className="flex items-center space-x-2 text-blue-100">
+                      <CheckCircle className="h-5 w-5 text-green-300" />
+                      <span className="text-sm">Instant Download</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-blue-100">
+                      <CheckCircle className="h-5 w-5 text-green-300" />
+                      <span className="text-sm">PDF Format</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-blue-100">
+                      <CheckCircle className="h-5 w-5 text-green-300" />
+                      <span className="text-sm">Mobile Friendly</span>
+                    </div>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Student Handbook</h3>
-                <p className="text-blue-100 mb-4">Complete guide with rules, policies, and important information</p>
-                <button className="w-full bg-white/20 text-white border border-white/30 py-3 px-6 rounded-lg font-semibold hover:bg-white/30 transition-colors duration-200 transform hover:scale-105">
-                  Download Guide
-                </button>
               </div>
-            </div>
-            
-            {/* Quick actions */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="flex items-center space-x-2 text-blue-100">
-                <CheckCircle className="h-5 w-5 text-green-300" />
-                <span className="text-sm">Instant Download</span>
-              </div>
-              <div className="flex items-center space-x-2 text-blue-100">
-                <CheckCircle className="h-5 w-5 text-green-300" />
-                <span className="text-sm">PDF Format</span>
-              </div>
-              <div className="flex items-center space-x-2 text-blue-100">
-                <CheckCircle className="h-5 w-5 text-green-300" />
-                <span className="text-sm">Mobile Friendly</span>
+
+              {/* Elegant Image Section */}
+              <div className="order-1 lg:order-2 relative">
+                <div className="relative group">
+                  {/* Floating elements around image */}
+                  <div className="absolute -top-6 -left-6 w-12 h-12 bg-yellow-400/20 rounded-full animate-pulse"></div>
+                  <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-green-400/20 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+                  <div className="absolute top-1/2 -right-8 w-6 h-6 bg-pink-400/20 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                  
+                  {/* Main image container */}
+                  <div className="relative bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/30 shadow-2xl transform rotate-2 group-hover:rotate-0 transition-all duration-500">
+                    <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                      <img 
+                        src="https://res.cloudinary.com/drq4idzdj/image/upload/v1757645267/pexels-olia-danilevich-8093032_qmokm8.jpg" 
+                        alt="Happy graduate student holding diploma"
+                        className="w-full h-auto rounded-xl shadow-lg object-cover"
+                      />
+                    </div>
+                    
+                    {/* Floating badge on image */}
+                    <div className="absolute -top-3 -right-3 bg-accent text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg rotate-12 group-hover:rotate-6 transition-transform duration-300">
+                      Welcome! 🎓
+                    </div>
+                  </div>
+                  
+                  {/* Background glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-3xl blur-xl transform scale-110 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+                </div>
               </div>
             </div>
             
             {/* Additional help link */}
-            <div className="mt-8 pt-6 border-t border-white/20">
+            <div className="mt-12 pt-8 border-t border-white/20 text-center">
               <p className="text-blue-100 text-sm mb-2">Need help downloading or have questions?</p>
               <Link
                 to="/contact"
@@ -328,10 +380,9 @@ const Index = () => {
         </div>
       </section>
 
-     <section className="py-20 bg-gray-50">
+     <section className="py-20 bg-gray-50" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-         
           <h2 className="font-serif text-4xl font-bold text-gray-900 mb-4">
             Our Schools & Programs
           </h2>
@@ -343,88 +394,118 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {programs.map((program, index) => {
             const IconComponent = program.icon;
+            const isVisible = visibleCards.includes(index);
+            
             return (
               <div
                 key={program.id}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+                ref={el => cardRefs.current[index] = el}
+                data-index={index}
+                className={`group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 transform cursor-pointer
+                  ${isVisible 
+                    ? 'translate-y-0 opacity-100 scale-100' 
+                    : 'translate-y-8 opacity-0 scale-95'
+                  }
+                  hover:-translate-y-2 hover:scale-105
+                `}
+                style={{ 
+                  transitionDelay: `${index * 0.15}s`,
+                  animationDelay: `${index * 0.15}s`
+                }}
                 onMouseEnter={() => setHoveredCard(program.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Background Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={program.image}
                     alt={program.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${program.color} opacity-80 group-hover:opacity-70 transition-opacity duration-300`} />
+                  {/* Enhanced Gradient Overlay for better text visibility */}
+                  <div className={`absolute inset-0 ${program.color} transition-opacity duration-300 ${
+                    hoveredCard === program.id ? 'opacity-75' : 'opacity-85'
+                  }`} />
+                  
+                  {/* Additional dark overlay for text readability */}
+                  <div className="absolute inset-0 bg-black/30" />
                   
                   {/* Content Overlay */}
                   <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
                     {/* Top Section */}
                     <div className="flex items-start justify-between">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 group-hover:bg-white/30 transition-colors duration-300">
-                        <IconComponent className="h-6 w-6" />
+                      <div className="bg-white/25 backdrop-blur-sm rounded-xl p-3 group-hover:bg-white/35 transition-all duration-300 shadow-lg">
+                        <IconComponent className="h-6 w-6 text-white drop-shadow-sm" />
                       </div>
-                      <div className="text-right">
-                        <div className="text-sm opacity-90">{program.students}</div>
-                        <div className="text-xs opacity-75">Students</div>
+                      <div className="text-right bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2">
+                        <div className="text-sm font-bold text-white">{program.students}</div>
+                        <div className="text-xs text-gray-200">Students</div>
                       </div>
                     </div>
                     
-                    {/* Bottom Section */}
-                    <div className="space-y-3">
-                      <div>
-                        <span className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium mb-3">
-                          {program.category}
-                        </span>
-                        <h3 className="font-bold text-xl leading-tight mb-2 group-hover:text-gray-100 transition-colors duration-300">
-                          {program.title}
-                        </h3>
+                    {/* Center Content - Always visible */}
+                    <div className="text-center space-y-3">
+                      <span className="inline-block bg-white/25 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-white shadow-lg">
+                        {program.category}
+                      </span>
+                      <h3 className="font-bold text-xl leading-tight text-white drop-shadow-lg">
+                        {program.title}
+                      </h3>
+                      <div className="text-sm bg-black/20 backdrop-blur-sm rounded-lg px-3 py-1 inline-block">
+                        <span className="font-semibold text-white">{program.programs}</span>
+                        <span className="text-gray-200 ml-1">Programs</span>
                       </div>
-                      
-                      {/* Expandable Description */}
-                      <div className={`transition-all duration-500 ${hoveredCard === program.id ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-                        <p className="text-sm text-gray-100 leading-relaxed mb-3">
+                    </div>
+                    
+                    {/* Bottom Section - Hover Content */}
+                    <div className={`transition-all duration-500 transform ${
+                      hoveredCard === program.id 
+                        ? 'translate-y-0 opacity-100 scale-100' 
+                        : 'translate-y-4 opacity-0 scale-95'
+                    }`}>
+                      {/* Description */}
+                      <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 mb-3">
+                        <p className="text-sm text-gray-100 leading-relaxed text-center">
                           {program.description}
                         </p>
                       </div>
                       
-                      {/* Stats and Action */}
-                      <div className="flex items-center justify-between">
-                        <div className="text-sm">
-                          <span className="font-semibold">{program.programs}</span>
-                          <span className="opacity-75 ml-1">Programs</span>
-                        </div>
-                        <div className={`flex items-center space-x-1 transition-all duration-300 ${hoveredCard === program.id ? 'translate-x-0 opacity-100' : 'translate-x-2 opacity-0'}`}>
-                          <span className="text-sm font-medium">Explore</span>
-                          <ArrowRight className="h-4 w-4" />
-                        </div>
+                      {/* Elegant Link Button */}
+                      <div className="text-center">
+                        <a
+                          href={program.link}
+                          className="inline-flex items-center space-x-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-white/20"
+                        >
+                          <span>Explore Programs</span>
+                          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        </a>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Hover Effect Overlay */}
-                  <div className={`absolute inset-0 bg-white/5 transition-opacity duration-300 ${hoveredCard === program.id ? 'opacity-100' : 'opacity-0'}`} />
+                  {/* Subtle shine effect on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transition-opacity duration-500 ${
+                    hoveredCard === program.id ? 'opacity-100' : 'opacity-0'
+                  }`} />
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* View All Button */}
+        {/* Enhanced View All Button */}
         <div className="text-center">
-          <button className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-3">
-            <span>Explore All Schools</span>
-            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+          <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center space-x-3">
+            <span className="relative z-10">Explore All Schools</span>
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 relative z-10" />
+            
+            {/* Animated background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
           </button>
         </div>
       </div>
     </section>
-
       
        {/* About Section */}
       <section className="py-12 bg-primary text-white">
