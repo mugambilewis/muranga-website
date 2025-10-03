@@ -138,9 +138,9 @@ const Admissions = () => {
   ];
 
   const intakePeriods = [
-    { period: "January 2024", deadline: "December 15, 2023", status: "Open" },
-    { period: "May 2024", deadline: "April 15, 2024", status: "Open" },
-    { period: "September 2024", deadline: "August 15, 2024", status: "Open" }
+    { period: "January 2026", deadline: "December 15, 2026", status: "Open" },
+    { period: "May 2026", deadline: "April 15, 2026", status: "Open" },
+    { period: "September 2025", deadline: "October 10, 2025", status: "Open" }
   ];
 
   return (

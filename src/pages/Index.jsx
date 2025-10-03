@@ -128,37 +128,37 @@ const Index = () => {
     {
       name: "Sarah Wanjiku",
       program: "Pharmacy Graduate",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      
       quote: "The hands-on experience and knowledgeable faculty at M.I.S.M.S gave me the confidence to excel in my pharmacy career."
     },
     {
       name: "David Kimani",
       program: "Business Management Graduate",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      
       quote: "The business program opened doors I never thought possible. I now run my own successful company thanks to the knowledge gained here."
     },
     {
       name: "Grace Njeri",
       program: "Applied Sciences Graduate",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      
       quote: "The laboratory facilities and expert guidance helped me develop practical skills that employers highly value."
     },
     {
       name: "John Mwangi",
       program: "Information Technology Graduate",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      
       quote: "The IT program at M.I.S.M.S equipped me with cutting-edge skills that landed me a job at a leading tech company."
     },
     {
       name: "Mary Wangari",
       program: "Health Sciences Graduate",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      
       quote: "The practical training in health sciences prepared me well for real-world healthcare challenges. I'm now helping my community."
     },
     {
       name: "Peter Karanja",
       program: "Business Management Graduate",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face",
+      
       quote: "M.I.S.M.S gave me the leadership skills and business knowledge to successfully manage my own enterprise."
     }
   ];
