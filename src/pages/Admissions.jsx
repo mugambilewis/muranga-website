@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Textarea } from '../components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { toast } from '../hooks/use-toast';
+import emailjs from '@emailjs/browser'; // ADDED: EmailJS import
 
 const Admissions = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +23,8 @@ const Admissions = () => {
     previousEducation: '',
     additionalInfo: ''
   });
+
+  const [isSending, setIsSending] = useState(false); // ADDED: sending state
 
   const handleInputChange = (e) => {
     setFormData({
@@ -39,23 +42,67 @@ const Admissions = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Set sending state
+    setIsSending(true);
+
     console.log('Application submitted:', formData);
-    toast({
-      title: "Application Submitted Successfully!",
-      description: "We'll contact you within 2-3 business days to discuss your application.",
-    });
-    
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      program: '',
-      intake: '',
-      previousEducation: '',
-      additionalInfo: ''
-    });
+
+    // Build template params to match your EmailJS template variables.
+    // If your EmailJS template uses different variable names (e.g. {{name}} or {{message}}),
+    // update the keys below to match them exactly.
+    const templateParams = {
+      name: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      phone: formData.phone,
+      program: formData.program,
+      intake: formData.intake,
+      previousEducation: formData.previousEducation,
+      additionalInfo: formData.additionalInfo,
+      message: `
+        Program: ${formData.program}
+        Intake: ${formData.intake}
+        Phone: ${formData.phone}
+        Education: ${formData.previousEducation}
+        Extra Info: ${formData.additionalInfo}
+      `
+    };
+
+    // Send email using EmailJS (service ID, template ID, public key as provided)
+    emailjs.send('service_c9cksub', 'template_lkt40ql', templateParams, 'XxfA1P97uL9-rAalm')
+      .then((response) => {
+        console.log('EmailJS success:', response);
+
+        // Show the requested success popup
+        toast({
+          title: "Sent!",
+          description: "We will reply back soon.",
+        });
+
+        // Reset form (keeps original reset behavior)
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          program: '',
+          intake: '',
+          previousEducation: '',
+          additionalInfo: ''
+        });
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+
+        // Show failure popup
+        toast({
+          title: "Failed!",
+          description: "Something went wrong. Please try again later.",
+        });
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   const admissionSteps = [
@@ -143,8 +190,7 @@ const Admissions = () => {
                 {/* Connection line for desktop */}
                 {index < admissionSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-blue-300 z-0"></div>
-                )}
-                
+                )}               
                 <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-blue-200 text-center z-10">
                   {/* Icon container with enhanced styling */}
                   <div className="relative w-20 h-20 mx-auto mb-6">
@@ -155,15 +201,13 @@ const Admissions = () => {
                     <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg ring-2 ring-white">
                       {index + 1}
                     </div>
-                  </div>
-                  
+                  </div>                  
                   <h3 className="font-semibold text-xl mb-4 text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
                     {step.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                     {step.description}
-                  </p>
-                  
+                  </p>                  
                   {/* Hover effect indicator */}
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-600 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </div>
@@ -355,8 +399,9 @@ const Admissions = () => {
                   <Button
                     type="submit"
                     className="w-full bg-primary hover:bg-primary/90 text-white py-3 text-lg font-semibold"
+                    disabled={isSending} // ADDED: disable while sending
                   >
-                    Submit Application
+                    {isSending ? 'Sending...' : 'Submit Application'} {/* ADDED: show state */}
                   </Button>
                 </form>
               </CardContent>
