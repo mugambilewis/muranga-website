@@ -62,11 +62,17 @@ const Management = () => {
 
     <div className="max-w-2xl mx-auto space-y-8">
       {managementTeam.map((member, index) => (
+      
         <div
           key={index}
-          className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in"
+          className="bg-white rounded-xl shadow-lg overflow-hidden  hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in"
           style={{ animationDelay: `${index * 0.1}s` }}
         >
+          <div className='flex-col justify-center align-center p-6 bg-gray-800 text-white'>
+            <h2 className="font-semibold text-xl">{member.name}</h2>
+            <h3 className="text-sm text-gray-200">{member.position}</h3>   
+          </div>
+             
           <div className="relative h-80 md:h-96 lg:h-[500px] overflow-hidden">
             <img
               src={member.image}
@@ -75,8 +81,7 @@ const Management = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="font-semibold text-xl">{member.name}</h3>
-              <p className="text-sm text-gray-200">{member.position}</p>
+              
             </div>
           </div>
         </div>
