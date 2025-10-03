@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -11,6 +10,8 @@ import { Textarea } from '../components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { toast } from '../hooks/use-toast';
 
+import emailjs from "@emailjs/browser";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,6 +21,8 @@ const Contact = () => {
     message: ''
   });
 
+  const [isSending, setIsSending] = useState(false); // ✅ Track sending state
+  
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -29,19 +32,47 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
-    toast({
-      title: "Message Sent Successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
+    setIsSending(true); // ✅ Start sending state
+
+    // ✅ Send email using EmailJS
+    emailjs.send(
+      "service_c9cksub",     // Service ID
+      "template_lkt40ql",    // Template ID
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        title: formData.subject,
+        message: formData.message,
+      },
+      "XxfA1P97uL9-rAalm"    // Public Key
+    )
+    .then((response) => {
+      console.log("SUCCESS!", response.status, response.text);
+      toast({
+        title: "Message Sent Successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    })
+    .catch((err) => {
+      console.error("FAILED...", err);
+      toast({
+        title: "Message Failed!",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    })
+    .finally(() => {
+      setIsSending(false); // ✅ Reset sending state
     });
   };
 
@@ -267,9 +298,10 @@ const Contact = () => {
                     <Button
                       type="submit"
                       className="w-full bg-primary hover:bg-primary/90 text-white py-3 text-lg font-semibold"
+                      disabled={isSending} // ✅ Disable when sending
                     >
                       <Send className="h-5 w-5 mr-2" />
-                      Send Message
+                      {isSending ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 </CardContent>
@@ -299,8 +331,6 @@ const Contact = () => {
                       referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                   </div>
-
-
 
                   <div className="space-y-4">
                     <h4 className="font-semibold text-lg text-gray-900">Getting Here:</h4>
